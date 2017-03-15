@@ -10,12 +10,11 @@ class Zillow(object):
         self.base = "https://www.zillow.com/webservice/"
 
     def GetSearchResults(self, address, citystatezip):
-        
 
+        data = {'zws-id' : self.ZWSID,'address' : address,'citystatezip': citystatezip}
 
-
-data = {'zws-id' : ZWSID,'address' : "3276 Spyglass Drive",'citystatezip':"98226"}
-
-response = requests.get(base + "GetSearchResults.htm",params=data)
-
-house = xmltodict.parse(response.text)
+        response = requests.get(base + "GetSearchResults.htm",params=data)
+        if response.status_code == 200:
+            return xmltodict.parse(response.text)
+        else:
+            return response.status_code
