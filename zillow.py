@@ -18,3 +18,12 @@ class Zillow(object):
             return xmltodict.parse(response.text)
         else:
             return response.status_code
+
+    def GetZestimate(self, zpid):
+        data = {'zws-id' : self.ZWSID, 'zpid' : zpid}
+        response = requests.get(base + "GetZestimate.htm",params=data)
+
+        if response.status_code == 200:
+            return xmltodict.parse(response.text)
+        else:
+            return response.status_code
