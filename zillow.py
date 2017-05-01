@@ -5,7 +5,7 @@ import os
 
 class Zillow(object):
     """A python wrapper for the Zillow Home API"""
-    def __init__(self, arg):
+    def __init__(self):
         self.ZWSID = os.environ['ZWSID']
         self.base = "https://www.zillow.com/webservice/"
 
@@ -13,7 +13,7 @@ class Zillow(object):
 
         data = {'zws-id' : self.ZWSID,'address' : address,'citystatezip': citystatezip}
 
-        response = requests.get(base + "GetSearchResults.htm",params=data)
+        response = requests.get(self.base + "GetSearchResults.htm",params=data)
         if response.status_code == 200:
             return xmltodict.parse(response.text)
         else:

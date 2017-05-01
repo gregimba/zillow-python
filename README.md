@@ -1,2 +1,8 @@
 # zillow-python
-A python wrapper for zillow
+A python wrapper for Zillow
+
+
+## GetSearchResults
+
+
+## GetZestimate
