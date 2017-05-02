@@ -14,3 +14,4 @@ Z = zillow.Zillow()
 
 ## GetChart
 [Params](https://www.zillow.com/howto/api/GetChart.htm)
+`Z.GetChart("48749425","dollar",600,300,"10years")`
