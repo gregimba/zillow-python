@@ -27,3 +27,18 @@ class Zillow(object):
             return xmltodict.parse(response.text)
         else:
             return response.status_code
+
+
+    def GetChart(self,zpid,unit_type, width, height, duration):
+        data = {'zws-id' : self.ZWSID,
+                'zpid' : zpid,
+                'unit_type' : unit_type,
+                'width' : width,
+                'height' : height,
+                'duration' : duration}
+        response = requests.get(base + "GetChart.htm",params=data)
+
+        if response.status_code == 200:
+            return xmltodict.parse(response.text)
+        else:
+            return response.status_code
