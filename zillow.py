@@ -42,3 +42,12 @@ class Zillow(object):
             return xmltodict.parse(response.text)
         else:
             return response.status_code
+
+    def GetComps(self, zpid, count):
+        data = {'zws-id' : self.ZWSID, 'zpid' : zpid, 'count': count}
+        response = requests.get(self.base + "GetComps.htm",params=data)
+
+        if response.status_code == 200:
+            return xmltodict.parse(response.text)
+        else:
+            return response.status_code
